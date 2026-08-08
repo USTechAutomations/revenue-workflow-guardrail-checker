@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A free, browser-only checklist for teams putting AI workflows near customer messages, payments, or business records.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#09111f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Revenue Workflow Guardrail Checker">
+  <meta property="og:description" content="Find missing authority, failure, and evidence controls before an automated workflow reaches production.">
+  <meta property="og:url" content="https://ustechautomations.github.io/revenue-workflow-guardrail-checker/">
+  <title>Revenue Workflow Guardrail Checker | U.S. Tech Automations</title>
+  <link rel="canonical" href="https://ustechautomations.github.io/revenue-workflow-guardrail-checker/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Revenue Workflow Guardrail Checker",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any modern browser",
+    "isAccessibleForFree": true,
+    "url": "https://ustechautomations.github.io/revenue-workflow-guardrail-checker/",
+    "provider": {
+      "@type": "Organization",
+      "name": "U.S. Tech Automations",
+      "url": "https://ustechautomations.com/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="https://ustechautomations.com/" aria-label="U.S. Tech Automations home">
+      <span class="brand-mark" aria-hidden="true">U</span>
+      <span>U.S. Tech Automations</span>
+    </a>
+    <a class="header-link" href="#review-offer">Request a review</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Free browser-only assessment</p>
+        <h1>Know what can go wrong before your AI workflow touches revenue.</h1>
+        <p class="lede">For operations leads and engineering managers putting automation near customer messages, payments, contracts, or business records. Check one workflow against 12 practical controls and leave with a downloadable evidence packet.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#checker">Check a workflow</a>
+          <a class="button button-secondary" href="#methodology">See the method</a>
+        </div>
+        <p class="privacy-line"><span aria-hidden="true">●</span> Your assessment never leaves this browser.</p>
+      </div>
+      <aside class="hero-card" aria-label="What this checker covers">
+        <p class="card-kicker">Four control layers</p>
+        <ol>
+          <li><span>01</span><strong>Authority</strong><small>Who may send, spend, sign, or change records?</small></li>
+          <li><span>02</span><strong>Failure</strong><small>What happens when the system cannot tell?</small></li>
+          <li><span>03</span><strong>Evidence</strong><small>Can each outcome be traced and replayed?</small></li>
+          <li><span>04</span><strong>Recovery</strong><small>Can a human stop and safely resume it?</small></li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="trust-strip" aria-label="Assessment properties">
+      <div><strong>12</strong><span>bounded checks</span></div>
+      <div><strong>0</strong><span>data uploads</span></div>
+      <div><strong>1</strong><span>portable JSON record</span></div>
+      <div><strong>Free</strong><span>no account required</span></div>
+    </section>
+
+    <section id="checker" class="checker-section">
+      <div class="section-heading">
+        <p class="eyebrow">Interactive checker</p>
+        <h2>Assess one production workflow</h2>
+        <p>Answer from evidence, not intent. Choose “Unknown” when you cannot demonstrate a control. The checker never converts missing evidence into a pass.</p>
+      </div>
+
+      <form id="assessment-form" novalidate>
+        <div id="question-list" class="question-list"></div>
+        <div class="form-actions">
+          <button class="button button-primary" type="submit">Build my findings</button>
+          <button class="text-button" type="reset">Clear answers</button>
+        </div>
+      </form>
+
+      <section id="results" class="results" aria-live="polite" hidden>
+        <div class="results-topline">
+          <div>
+            <p class="eyebrow">Assessment result</p>
+            <h2 id="result-title">Evidence needed</h2>
+          </div>
+          <div id="result-badge" class="result-badge">Unknown</div>
+        </div>
+        <p id="result-summary" class="result-summary"></p>
+        <div class="result-metrics">
+          <div><strong id="count-supported">0</strong><span>supported</span></div>
+          <div><strong id="count-gaps">0</strong><span>gaps</span></div>
+          <div><strong id="count-unknown">0</strong><span>unknown</span></div>
+        </div>
+        <div class="findings-grid">
+          <div>
+            <h3>Next controls to close</h3>
+            <ol id="finding-list" class="finding-list"></ol>
+          </div>
+          <div class="result-note">
+            <h3>What this result means</h3>
+            <p>This is a structured screening record, not a security audit, legal opinion, certification, or production approval. Validate each control in your own environment before changing authority.</p>
+          </div>
+        </div>
+        <label class="notes-label" for="assessment-notes">Optional internal note</label>
+        <textarea id="assessment-notes" rows="3" maxlength="800" placeholder="Workflow name, owner, evidence links, or review context"></textarea>
+        <div class="result-actions">
+          <button id="download-report" class="button button-primary" type="button">Download JSON evidence packet</button>
+          <button id="print-report" class="button button-secondary" type="button">Print result</button>
+        </div>
+      </section>
+    </section>
+
+    <section id="methodology" class="methodology">
+      <div class="section-heading">
+        <p class="eyebrow">Methodology</p>
+        <h2>A conservative screen, not a confidence score</h2>
+      </div>
+      <div class="method-grid">
+        <article>
+          <span>01</span>
+          <h3>Unknown stays unknown</h3>
+          <p>A missing probe, unreadable receipt, or untested recovery path is not treated as “probably fine.”</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Authority is explicit</h3>
+          <p>Actions that send messages, move money, accept contracts, or alter records need a named boundary and owner.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Outcomes are attributable</h3>
+          <p>A useful receipt binds the trigger, decision, action, result, and owning workflow—not just a green job status.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Recovery is exercised</h3>
+          <p>A stop switch and retry policy count only when the workflow proves they work without duplicating external effects.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="review-offer" class="offer-section">
+      <div>
+        <p class="eyebrow">Fixed-scope offer test</p>
+        <h2>Revenue Workflow Guardrail Review</h2>
+        <p class="offer-lede">For a team that wants an evidence-led second look before one automated workflow reaches customers, money, or authoritative records.</p>
+        <ul class="offer-list">
+          <li>One workflow and up to five external action types</li>
+          <li>Authority map and fail-closed gap register</li>
+          <li>Receipt, attribution, retry, and recovery review</li>
+          <li>Prioritized control packet delivered within five business days after complete intake</li>
+        </ul>
+      </div>
+      <aside class="price-card">
+        <p class="price-label">Fixed price</p>
+        <p class="price">$750 <span>one time</span></p>
+        <p>No payment or order is accepted on this page. Request availability first; scope and terms are confirmed in writing before work starts.</p>
+        <a class="button button-primary button-wide" href="https://ustechautomations.com/partner?interest=revenue-workflow-guardrail-review&amp;utm_source=github&amp;utm_medium=tool&amp;utm_campaign=revenue-workflow-guardrail-checker">Request availability</a>
+        <p class="withdrawal">You may withdraw the request at any time before accepting a written scope.</p>
+      </aside>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-heading">
+        <p class="eyebrow">Questions</p>
+        <h2>What the checker does—and does not do</h2>
+      </div>
+      <div class="faq-grid">
+        <details>
+          <summary>Does the checker upload workflow details?</summary>
+          <p>No. The page has no form endpoint, analytics script, account system, or network request for assessment data. The optional JSON packet is created locally.</p>
+        </details>
+        <details>
+          <summary>Is a green result production approval?</summary>
+          <p>No. It means your answers did not expose a listed gap. It does not independently inspect your system or authorize deployment.</p>
+        </details>
+        <details>
+          <summary>What should I enter as evidence?</summary>
+          <p>Use concrete artifacts: policy files, screenshots, test receipts, logs, replay results, and named ownership records. Aspirations are not evidence.</p>
+        </details>
+        <details>
+          <summary>Can this assess more than one workflow?</summary>
+          <p>Run and export a separate packet for each workflow. Mixing authorities and recovery paths makes the result less useful.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built by <a href="https://ustechautomations.com/">U.S. Tech Automations</a> from policy-bounded workflow controls.</p>
+    <p><a href="https://github.com/USTechAutomations/revenue-workflow-guardrail-checker">Source and methodology</a></p>
+  </footer>
+</body>
+</html>
